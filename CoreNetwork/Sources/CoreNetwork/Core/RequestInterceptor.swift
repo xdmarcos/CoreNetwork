@@ -1,11 +1,27 @@
 //
-//  File.swift
+//  RequestInterceptor.swift
 //
 //
 //  Created by Marcos A. González Piñeiro on 02/01/2024.
 //
 
 import Foundation
+
+/// Type that provides both `RequestAdapter` and `RequestRetrier` functionality.
+public protocol RequestInterceptor: RequestAdapter, RequestRetrier {}
+
+extension RequestInterceptor {
+    public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
+        completion(.success(urlRequest))
+    }
+
+    public func retry(_ request: URLRequest,
+                      for session: Session,
+                      dueTo error: Error,
+                      completion: @escaping (RetryResult) -> Void) {
+        completion(.doNotRetry)
+    }
+}
 
 /// Outcome of determination whether retry is necessary.
 public enum RetryResult {
@@ -87,22 +103,6 @@ public protocol RequestRetrier {
     ///   - error:      `Error` encountered while executing the `Request`.
     ///   - completion: Completion closure to be executed when a retry decision has been determined.
     func retry(_ request: URLRequest, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void)
-}
-
-/// Type that provides both `RequestAdapter` and `RequestRetrier` functionality.
-public protocol RequestInterceptor: RequestAdapter, RequestRetrier {}
-
-extension RequestInterceptor {
-    public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
-        completion(.success(urlRequest))
-    }
-
-    public func retry(_ request: URLRequest,
-                      for session: Session,
-                      dueTo error: Error,
-                      completion: @escaping (RetryResult) -> Void) {
-        completion(.doNotRetry)
-    }
 }
 
 /// `RequestAdapter` closure definition.
