@@ -1,0 +1,27 @@
+.DS_Store
+Thumbs.db
+
+/.build
+/Packages
+xcuserdata/
+DerivedData/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
+
+*.moved-aside
+temp.txt
+
+# xcode noise
+Build/*
+build/*
+*.perspective
+*.perspectivev3
+*.pbxuser
+# *.xcworkspace
+*.mode1
+*.mode2v3
+*.mode1v3
+xcuserdata
+Snapshots
+test-reports/

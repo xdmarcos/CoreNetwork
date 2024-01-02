@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "F0049D09-D922-4F0B-931B-C40A98A97C13",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "CoreNetworkTests",
+        "name" : "CoreNetworkTests"
+      }
+    }
+  ],
+  "version" : 1
+}
