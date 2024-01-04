@@ -156,7 +156,7 @@ private extension ApiClient {
         do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
-            throw ApiError(customError: .decodingData)
+            throw ApiError(customError: .decodingData, originalError: error)
         }
     }
 

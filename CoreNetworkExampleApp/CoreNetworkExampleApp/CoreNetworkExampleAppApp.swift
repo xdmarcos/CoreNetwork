@@ -11,7 +11,7 @@ import SwiftUI
 struct CoreNetworkExampleAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(inputText: .constant(""), placeholder: "1600 Pennsylvania Ave NW, Washington DC")
+            ContentView(viewModel: GeolocationViewModel())
         }
     }
 }

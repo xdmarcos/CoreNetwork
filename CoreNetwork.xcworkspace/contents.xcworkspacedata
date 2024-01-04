@@ -5,6 +5,9 @@
       location = "group:CoreNetworkExampleApp/CoreNetworkExampleApp.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Location">
+   </FileRef>
+   <FileRef
       location = "group:CoreNetwork">
    </FileRef>
    <FileRef

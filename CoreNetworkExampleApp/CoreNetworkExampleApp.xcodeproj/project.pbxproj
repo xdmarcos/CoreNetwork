@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4113E6EE2B3350AF0032BE80 /* GeolocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4113E6ED2B3350AF0032BE80 /* GeolocationViewModel.swift */; };
+		4120F5CF2B46CD4E00A202E5 /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 4120F5CE2B46CD4E00A202E5 /* SwiftfulLoadingIndicators */; };
+		418D36AA2B456B7A009B63A1 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418D36A92B456B7A009B63A1 /* LocationInfo.swift */; };
+		418D36AC2B456E86009B63A1 /* Location in Frameworks */ = {isa = PBXBuildFile; productRef = 418D36AB2B456E86009B63A1 /* Location */; };
 		41A9D47A2B3314B40019142E /* CoreNetworkExampleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D4792B3314B40019142E /* CoreNetworkExampleAppApp.swift */; };
 		41A9D47C2B3314B40019142E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D47B2B3314B40019142E /* ContentView.swift */; };
 		41A9D47E2B3314B40019142E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41A9D47D2B3314B40019142E /* Assets.xcassets */; };
@@ -16,6 +19,8 @@
 		41A9D4952B3314B50019142E /* CoreNetworkExampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D4942B3314B50019142E /* CoreNetworkExampleAppUITests.swift */; };
 		41A9D4972B3314B50019142E /* CoreNetworkExampleAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9D4962B3314B50019142E /* CoreNetworkExampleAppUITestsLaunchTests.swift */; };
 		41A9D4A52B33157F0019142E /* CoreNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 41A9D4A42B33157F0019142E /* CoreNetwork */; };
+		41AA4C002B45DA5600726123 /* GeolocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA4BFF2B45DA5600726123 /* GeolocationModel.swift */; };
+		41AA4C022B45DAB100726123 /* GeolocationEndpointProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AA4C012B45DAB100726123 /* GeolocationEndpointProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		4113E6ED2B3350AF0032BE80 /* GeolocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationViewModel.swift; sourceTree = "<group>"; };
+		418D36A92B456B7A009B63A1 /* LocationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
 		41A9D4762B3314B40019142E /* CoreNetworkExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreNetworkExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A9D4792B3314B40019142E /* CoreNetworkExampleAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreNetworkExampleAppApp.swift; sourceTree = "<group>"; };
 		41A9D47B2B3314B40019142E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +53,9 @@
 		41A9D4902B3314B50019142E /* CoreNetworkExampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreNetworkExampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A9D4942B3314B50019142E /* CoreNetworkExampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreNetworkExampleAppUITests.swift; sourceTree = "<group>"; };
 		41A9D4962B3314B50019142E /* CoreNetworkExampleAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreNetworkExampleAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		41AA4BFE2B45826800726123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		41AA4BFF2B45DA5600726123 /* GeolocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationModel.swift; sourceTree = "<group>"; };
+		41AA4C012B45DAB100726123 /* GeolocationEndpointProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationEndpointProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +64,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				41A9D4A52B33157F0019142E /* CoreNetwork in Frameworks */,
+				418D36AC2B456E86009B63A1 /* Location in Frameworks */,
+				4120F5CF2B46CD4E00A202E5 /* SwiftfulLoadingIndicators in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +86,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		418D36A52B456AD1009B63A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				418D36A92B456B7A009B63A1 /* LocationInfo.swift */,
+				41AA4BFF2B45DA5600726123 /* GeolocationModel.swift */,
+				41AA4C012B45DAB100726123 /* GeolocationEndpointProvider.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		418D36A62B456AD9009B63A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41A9D47B2B3314B40019142E /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		418D36A72B456AE3009B63A1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4113E6ED2B3350AF0032BE80 /* GeolocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		418D36A82B456B15009B63A1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				41A9D47D2B3314B40019142E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		41A9D46D2B3314B40019142E = {
 			isa = PBXGroup;
 			children = (
@@ -99,10 +144,12 @@
 		41A9D4782B3314B40019142E /* CoreNetworkExampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				41AA4BFE2B45826800726123 /* Info.plist */,
 				41A9D4792B3314B40019142E /* CoreNetworkExampleAppApp.swift */,
-				41A9D47B2B3314B40019142E /* ContentView.swift */,
-				4113E6ED2B3350AF0032BE80 /* GeolocationViewModel.swift */,
-				41A9D47D2B3314B40019142E /* Assets.xcassets */,
+				418D36A72B456AE3009B63A1 /* ViewModel */,
+				418D36A62B456AD9009B63A1 /* View */,
+				418D36A52B456AD1009B63A1 /* Model */,
+				418D36A82B456B15009B63A1 /* Resources */,
 				41A9D47F2B3314B40019142E /* Preview Content */,
 			);
 			path = CoreNetworkExampleApp;
@@ -158,6 +205,8 @@
 			name = CoreNetworkExampleApp;
 			packageProductDependencies = (
 				41A9D4A42B33157F0019142E /* CoreNetwork */,
+				418D36AB2B456E86009B63A1 /* Location */,
+				4120F5CE2B46CD4E00A202E5 /* SwiftfulLoadingIndicators */,
 			);
 			productName = CoreNetworkExampleApp;
 			productReference = 41A9D4762B3314B40019142E /* CoreNetworkExampleApp.app */;
@@ -231,6 +280,9 @@
 				Base,
 			);
 			mainGroup = 41A9D46D2B3314B40019142E;
+			packageReferences = (
+				4120F5CD2B46CD4E00A202E5 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
+			);
 			productRefGroup = 41A9D4772B3314B40019142E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,8 +325,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				418D36AA2B456B7A009B63A1 /* LocationInfo.swift in Sources */,
+				41AA4C002B45DA5600726123 /* GeolocationModel.swift in Sources */,
 				41A9D47C2B3314B40019142E /* ContentView.swift in Sources */,
 				41A9D47A2B3314B40019142E /* CoreNetworkExampleAppApp.swift in Sources */,
+				41AA4C022B45DAB100726123 /* GeolocationEndpointProvider.swift in Sources */,
 				4113E6EE2B3350AF0032BE80 /* GeolocationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +497,11 @@
 				DEVELOPMENT_TEAM = 55VB965UGA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoreNetworkExampleApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need location to determine in wich country you are and therefore being able to log it.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need location to determine in wich country you are and therefore being able to log it.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "We need location to determine in wich country you are and therefore being able to log it.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need location to determine in wich country you are and therefore being able to log it.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -471,6 +531,11 @@
 				DEVELOPMENT_TEAM = 55VB965UGA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoreNetworkExampleApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need location to determine in wich country you are and therefore being able to log it.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need location to determine in wich country you are and therefore being able to log it.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "We need location to determine in wich country you are and therefore being able to log it.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need location to determine in wich country you are and therefore being able to log it.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -606,7 +671,27 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		4120F5CD2B46CD4E00A202E5 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		4120F5CE2B46CD4E00A202E5 /* SwiftfulLoadingIndicators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4120F5CD2B46CD4E00A202E5 /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */;
+			productName = SwiftfulLoadingIndicators;
+		};
+		418D36AB2B456E86009B63A1 /* Location */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Location;
+		};
 		41A9D4A42B33157F0019142E /* CoreNetwork */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreNetwork;

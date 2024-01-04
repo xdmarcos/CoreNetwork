@@ -11,14 +11,20 @@ import Foundation
 public protocol RequestInterceptor: RequestAdapter, RequestRetrier {}
 
 extension RequestInterceptor {
-    public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
+    public func adapt(
+        _ urlRequest: URLRequest,
+        for session: Session,
+        completion: @escaping (Result<URLRequest, Error>) -> Void
+    ) {
         completion(.success(urlRequest))
     }
 
-    public func retry(_ request: URLRequest,
-                      for session: Session,
-                      dueTo error: Error,
-                      completion: @escaping (RetryResult) -> Void) {
+    public func retry(
+        _ request: URLRequest,
+        for session: Session,
+        dueTo error: Error,
+        completion: @escaping (RetryResult) -> Void
+    ) {
         completion(.doNotRetry)
     }
 }
@@ -73,7 +79,11 @@ public protocol RequestAdapter {
     ///   - urlRequest: The `URLRequest` to adapt.
     ///   - session:    The `Session` that will execute the `URLRequest`.
     ///   - completion: The completion handler that must be called when adaptation is complete.
-    func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void)
+    func adapt(
+        _ urlRequest: URLRequest,
+        for session: Session,
+        completion: @escaping (Result<URLRequest, Error>) -> Void
+    )
 
     /// Inspects and adapts the specified `URLRequest` in some manner and calls the completion handler with the Result.
     ///
@@ -81,11 +91,19 @@ public protocol RequestAdapter {
     ///   - urlRequest: The `URLRequest` to adapt.
     ///   - state:      The `RequestAdapterState` associated with the `URLRequest`.
     ///   - completion: The completion handler that must be called when adaptation is complete.
-    func adapt(_ urlRequest: URLRequest, using state: RequestAdapterState, completion: @escaping (Result<URLRequest, Error>) -> Void)
+    func adapt(
+        _ urlRequest: URLRequest,
+        using state: RequestAdapterState,
+        completion: @escaping (Result<URLRequest, Error>) -> Void
+    )
 }
 
 extension RequestAdapter {
-    public func adapt(_ urlRequest: URLRequest, using state: RequestAdapterState, completion: @escaping (Result<URLRequest, Error>) -> Void) {
+    public func adapt(
+        _ urlRequest: URLRequest,
+        using state: RequestAdapterState,
+        completion: @escaping (Result<URLRequest, Error>) -> Void
+    ) {
         adapt(urlRequest, for: state.session, completion: completion)
     }
 }
@@ -102,7 +120,12 @@ public protocol RequestRetrier {
     ///   - session:    `Session` that produced the `Request`.
     ///   - error:      `Error` encountered while executing the `Request`.
     ///   - completion: Completion closure to be executed when a retry decision has been determined.
-    func retry(_ request: URLRequest, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void)
+    func retry(
+        _ request: URLRequest,
+        for session: Session,
+        dueTo error: Error,
+        completion: @escaping (RetryResult) -> Void
+    )
 }
 
 /// `RequestAdapter` closure definition.
