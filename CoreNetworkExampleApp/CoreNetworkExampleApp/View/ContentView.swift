@@ -25,16 +25,26 @@ struct ContentView: View {
     }
 
     var body: some View {
-        VStack(spacing: 64) {
+        VStack {
             VStack(alignment: .leading) {
-                Text("Reverse geolocation")
-                    .font(.title)
-                    .fontDesign(.rounded)
-                    .bold()
-                    .padding(.bottom, 32)
+                VStack {
+                    if let country = viewModel.result.first {
+                        let result = "Welcome to \(country.countryName) \(country.countryFlag)"
+                        Text(result)
+                            .font(.title)
+                            .fontDesign(.rounded)
+                            .bold()
+                    } else {
+                        Text("Retrieving info...")
+                            .font(.title)
+                            .fontDesign(.rounded)
+                            .bold()
+                    }
+                }
+                .padding(.top)
 
                 VStack(alignment: .leading) {
-                    Text("Coordinates:")
+                    Text("Coordinates (lat, lon):")
                     HStack(spacing: 16) {
                         TextField(text: $inputText) {
                             if let result = viewModel.result.first {
@@ -44,27 +54,47 @@ struct ContentView: View {
                         }
                         .disabled(true)
 
-                        Button("", systemImage: "location.magnifyingglass") {
+                        Button("", systemImage: "location.fill.viewfinder") {
                             Task {
                                 try await viewModel.startLocationUpdates()
                             }
                         }
+                        .frame(width: 24, height: 24)
                         .disabled(viewModel.liveUpdatesDidStart)
                     }
-                }
 
-                Divider()
+                    Divider()
+                }
+                .padding(.top)
 
                 VStack(alignment: .leading) {
-                    Text("Altitude:")
+                    Text("Altitude (m):")
 
                     TextField(text: $inputText) {
                         if let result = viewModel.result.first {
-                            let value = "\(result.altitude)m"
+                            let value = "\(result.altitude)"
                             Text(value)
                         }
                     }
-                }.padding(.top)
+
+                    Divider()
+                }
+                .padding(.top)
+
+                VStack(alignment: .leading) {
+                    Text("Location address:")
+                    HStack(spacing: 16) {
+                        TextField(text: $inputText) {
+                            if let result = viewModel.result.first {
+                                Text(result.address)
+                            }
+                        }
+                        .disabled(true)
+                    }
+
+                    Divider()
+                }
+                .padding(.top)
 
                 HStack {
                     Spacer()
@@ -81,54 +111,13 @@ struct ContentView: View {
                             viewModel.stopLocationUpdates()
                         }
                         .disabled(!viewModel.liveUpdatesDidStart)
+                        .padding(.top, 8)
                     }
                     Spacer()
                 }
-                .padding(.top, 24)
+                .padding(.top, 44)
             }
             .padding(.top)
-
-            VStack(alignment: .leading) {
-                Text("Forward geolocation")
-                    .font(.title)
-                    .fontDesign(.rounded)
-                    .bold()
-                    .padding(.bottom, 32)
-
-                VStack(alignment: .leading) {
-                    Text("Location address:")
-                    HStack(spacing: 16) {
-                        TextField(text: $inputText) {
-                            if let result = viewModel.result.first {
-                                Text(result.address)
-                            }
-                        }
-                        .disabled(true)
-                    }
-
-                    Divider()
-                }
-            }
-
-            HStack {
-                Text("Welcome to")
-                    .font(.title)
-                    .fontDesign(.rounded)
-                    .bold()
-
-                if let country = viewModel.result.first {
-                    let result = "\(country.countryName) \(country.countryFlag) "
-                    Text(result)
-                        .font(.title)
-                        .fontDesign(.rounded)
-                        .bold()
-                } else {
-                    Text("...")
-                        .font(.title)
-                        .fontDesign(.rounded)
-                        .bold()
-                }
-            }
 
             Spacer()
         }
