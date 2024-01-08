@@ -42,6 +42,7 @@ public enum CoreHTTP {
         case connection = "Connection"
         case contentLength = "Content-Length"
         case contentType = "Content-Type"
+        case contentDisposition = "Content-Disposition"
         case cookie = "Cookie"
 
         case host = "Host"
@@ -56,6 +57,8 @@ public enum CoreHTTP {
         case anyImage = "image/*"
 
         case json = "application/json"
+        case anyBinary = "application/octet-stream"
+        case urlEncoded = "application/x-www-form-urlencoded"
 
         case plain = "text/plain"
         case javascript = "text/javascript"
@@ -67,10 +70,15 @@ public enum CoreHTTP {
         case jpg = "image/jpg"
         case jpeg = "image/jpeg"
         case svg = "image/svg"
+        case tiff = "image/tiff"
+        case bmp = "image/bmp"
+        case quickTime = "video/quicktime"
+        case mov = "video/mov"
+        case mp4 = "video/mp4"
+        case pdf = "application/pdf"
+        case vnd = "application/vnd"
 
         case multipart = "multipart/form-data"
-
-        case urlEncoded = "application/x-www-form-urlencoded"
     }
 
     public enum AuthorizationMethod {

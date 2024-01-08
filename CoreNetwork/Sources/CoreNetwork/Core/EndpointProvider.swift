@@ -18,5 +18,5 @@ public protocol EndpointProvider {
     var queryItems: [URLQueryItem]? { get }
     var body: [String: Any]? { get }
     var mockFile: String? { get }
-    // multipart files???
+    var multipart: Multipart? { get }
 }

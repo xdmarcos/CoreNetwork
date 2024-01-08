@@ -39,6 +39,12 @@ extension EndpointProvider {
             urlRequest.addValue(authorization.value, forHTTPHeaderField: CoreHTTP.HeaderKey.authorization.rawValue)
         }
 
+        if let multipart = multipart {
+            urlRequest.setValue(multipart.headerValue, forHTTPHeaderField: CoreHTTPHeaderKey.contentType.rawValue)
+            urlRequest.setValue("\(multipart.length)", forHTTPHeaderField: CoreHTTPHeaderKey.contentLength.rawValue)
+            urlRequest.httpBody = multipart.httpBody
+        }
+
         if let body = body {
             do {
                 urlRequest.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
@@ -46,7 +52,7 @@ extension EndpointProvider {
                 throw ApiError(customError: .encodingBody)
             }
         }
-        
+
         return urlRequest
     }
 }
