@@ -1,3 +1,10 @@
+//
+//  CoreNetworkTests.swift
+//  CoreNetwork
+//
+//  Created by xdmGzDev on 17/6/25.
+//
+
 import Testing
 @testable import CoreNetwork
 
