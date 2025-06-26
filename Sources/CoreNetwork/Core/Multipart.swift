@@ -86,25 +86,10 @@ public struct Multipart {
 }
 
 import UniformTypeIdentifiers
-import MobileCoreServices
 
 extension Multipart {
     private func mimeType(for pathExtension: String) -> String {
-        if #available(iOS 14, macOS 11, tvOS 14, watchOS 7, *) {
-            return UTType(filenameExtension: pathExtension)?.preferredMIMEType ?? "\(CoreHTTPMimeType.anyBinary.rawValue)"
-        } else {
-            if
-                let id = UTTypeCreatePreferredIdentifierForTag(
-                    kUTTagClassFilenameExtension,
-                    pathExtension as CFString,
-                    nil
-                )?.takeRetainedValue(),
-                let contentType = UTTypeCopyPreferredTagWithClass(id, kUTTagClassMIMEType)?.takeRetainedValue() {
-                return contentType as String
-            }
-
-            return "\(CoreHTTPMimeType.anyBinary.rawValue)"
-        }
+        UTType(filenameExtension: pathExtension)?.preferredMIMEType ?? "\(CoreHTTPMimeType.anyBinary.rawValue)"
     }
 }
 
